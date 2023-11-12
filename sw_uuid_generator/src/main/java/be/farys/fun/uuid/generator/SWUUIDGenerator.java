@@ -8,7 +8,7 @@ import com.gesmallworld.magik.commons.interop.annotations.MagikMethod;
 import com.gesmallworld.magik.commons.interop.annotations.Name;
 import com.gesmallworld.magik.commons.interop.annotations.Optional;
 import com.gesmallworld.magik.interop.MagikInteropUtils;
-import com.gesmallworld.magik.interop.MagikVectorUtils;
+
 
 @MagikExemplar(@Name("sw_uuid_generator"))
 public class SWUUIDGenerator {
