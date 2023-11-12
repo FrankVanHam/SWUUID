@@ -1,0 +1,18 @@
+_package user
+$
+
+sw:smallworld_product.add_product("C:\Users\frnkv\source\repos\SWUUID\interop.demo\interop_demo_product")
+$
+
+sw_module_manager.load_module(:interop_demo_module)
+$
+
+gen << sw_uuid_generator.new()
+$
+
+show(gen.get())
+$
+
+show(gen.get())
+$
+

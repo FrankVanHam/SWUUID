@@ -1,0 +1,18 @@
+_package user
+$
+
+sw:smallworld_product.add_product("C:\Users\frnkv\source\repos\SWUUID\sw_uuid_generator\sw_uuid_generator_prd")
+$
+
+sw_module_manager.load_module(:sw_uuid_generator)
+$
+
+gen << sw_uuid_generator.new()
+$
+
+show(gen.get())
+$
+
+show(gen.get())
+$
+

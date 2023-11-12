@@ -1,0 +1,5 @@
+sw_uuid_generator	1
+
+requires_java
+	interop_demo
+end

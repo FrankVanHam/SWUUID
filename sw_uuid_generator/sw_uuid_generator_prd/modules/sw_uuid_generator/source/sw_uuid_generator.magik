@@ -1,0 +1,12 @@
+_package user
+$
+
+
+#_block
+#	# create a generator
+#	gen << sw_uuid_generator.new()
+#
+#	# use get() to get a unique UUID
+#	show(gen.get())
+#_endblock
+#$

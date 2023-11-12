@@ -1,0 +1,78 @@
+<project name="be.farys.fun.uuid.generator" default="jar">
+    <description>Compile UUID Generator</description>
+    
+  <property name="build.dir"   value="build"/>
+  <property name="classes.dir" value="classes"/>
+  <property name="src.dir"     value="src/main/java"/>
+
+  <target name="clean-task">
+      <delete dir="${build.dir}" quiet="true"/>
+  </target>
+  
+  <target name="compile-task">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" debug="true">
+      <classpath>
+        <fileset dir="./compile-libs">
+          <include name="*.jar"/>
+        </fileset>
+        <fileset dir="sw_uuid_generator_prd/libs">
+          <include name="*.jar"/>
+        </fileset>
+      </classpath>      
+    </javac>
+  </target>
+
+  <target name="jar-task">
+    <mkdir dir="${build.dir}/META-INF" />
+    <manifest file="${build.dir}/META-INF/MANIFEST.MF">
+       <attribute name = "Bundle-ManifestVersion" value="2"/>
+       <attribute name = "Bundle-Name" value="Farys UUID Generator"/>
+       <attribute name = "Bundle-SymbolicName" value="uuid_generator"/>
+       <attribute name = "Import-Package" value="com.gesmallworld.magik.interop;version=&quot;[1.0,2)&quot;,com.gesmallworld.magik.commons.interop.annotations;version=&quot;[1.0,2)&quot;"/>
+       <attribute name = "Export-Package" value="be.farys.fun.uuid.generator"/>
+       <attribute name = "Bundle-Activator" value="com.gesmallworld.magik.interop.JavaToMagikActivator"/>
+    </manifest>
+  	
+    <jar destfile="${build.dir}/be.farys.fun.uuid_generator.jar"
+         basedir="${classes.dir}"
+	 manifest="${build.dir}/META-INF/MANIFEST.MF" >
+    </jar>
+  </target>
+  
+  <target name="copy-jar-task">
+      <copy file="${build.dir}/be.farys.fun.uuid_generator.jar" tofile="interop_demo_product/libs/be.farys.fun.uuid_generator.jar"/>
+  </target>
+
+  <target name="clean" depends="clean-task"
+    description="clean this project"/>
+    
+  <target name="compile" depends="clean, compile-task"
+    description="compile this project"/>
+    
+  <target name="jar" depends="compile, jar-task"
+    description="jar this project"/>
+    
+  <target name="publish" depends="jar, copy-jar-task"
+    description="publish this project"/>
+    
+  <target name="publish-shared" depends="publish"
+    description="publish this project"/>
+    
+  <target name="publish-src" depends="jar, copy-jar-task"
+    description="publish this project"/>
+
+  <target name="publish-src-test" depends="publish-src"
+    description="publish this project"/>
+
+  <target name="run-task"
+    description="run this task"/>
+  
+  <target name="run" depends="run-task"
+    description="run this project"/>
+
+  <target name="run-tests-only"/>  <!-- none to run -->
+
+  <target name="slow-test"/>  <!-- none to run -->
+
+</project>

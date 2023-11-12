@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.14
+Created-By: 17.0.9+8-LTS (Amazon.com Inc.)
+Bundle-ManifestVersion: 2
+Bundle-Name: Farys UUID Generator
+Bundle-SymbolicName: uuid_generator
+Import-Package: com.gesmallworld.magik.interop;version="[1.0,2)",com.g
+ esmallworld.magik.commons.interop.annotations;version="[1.0,2)"
+Export-Package: be.farys.fun.uuid.generator
+Bundle-Activator: com.gesmallworld.magik.interop.JavaToMagikActivator
+
